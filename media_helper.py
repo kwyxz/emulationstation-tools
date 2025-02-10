@@ -153,7 +153,7 @@ def main():
     elif ARGS.delete:
         to_delete = print_dups(sorted(duplicates.items()))
         if len(to_delete)>0:
-            if confirm_delete() or ARGS.yes:
+            if ARGS.yes or confirm_delete():
                 delete_roms(to_delete)
     else:
         missing = find_missing(ROOT,MEDIA_PATH)
@@ -167,12 +167,12 @@ if __name__ == "__main__":
         prog='media_helper',
         description='find missing media and attempt to merge it from duplicates')
     parser.add_argument('hardware', type=str)
+    parser.add_argument('-y', '--yes', action='store_true', help='answer YES to questions')
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('-f', '--find', action='store_true', help='find duplicate files')
     group.add_argument('-d', '--delete', action='store_true', help='delete the duplicate files')
     group.add_argument('-m', '--media', action='store_true', help='find the missing media files')
     group.add_argument('-c', '--copy', action='store_true', help='merge the media files')
-    group.add_argument('-y', '--yes', action='store_true', help='answer YES to questions')
 
     ARGS = parser.parse_args()
     XMLFILE = f"{ES_PATH}/gamelists/{ARGS.hardware}/gamelist.xml"
