@@ -15,7 +15,7 @@ from pathlib import Path
 ES_PATH=f"{str(Path.home())}/ES-DE"
 DL_MEDIA_PATH=f"{str(Path.home())}/ES-DE/downloaded_media"
 ROM_PATH=f"{str(Path.home())}/ROMs"
-COUNTRY_LIST=['(USA)','(USA','USA)','(World','World)','(Europe','Europe)','(France','France)','(Japan) (En)','(Japan) [T-En', '(Japan) (Unl) [T-En', '(T-En','[T-En', '(Japan', 'Japan)']
+COUNTRY_LIST=['(USA)','(USA','USA)','(World','World)','(Europe','Europe)','(France)','(France','France)','(Japan) (En)','(Japan) [T-En', '(Japan) (Unl) [T-En', '(T-En','[T-En', '(Japan', 'Japan)']
 
 def die(message):
     print(f"ERROR: {message}")
